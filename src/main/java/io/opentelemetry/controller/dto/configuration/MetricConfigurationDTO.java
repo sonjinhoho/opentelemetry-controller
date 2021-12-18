@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MetricConfigurationDTO{
+  private String name;
   private String metricExporter;
   private String metricEndPoint;
   private String metricCertificate;

@@ -1,4 +1,4 @@
-package io.opentelemetry.controller.service.remote;
+package io.opentelemetry.controller.service.configuration;
 
 import io.opentelemetry.controller.dto.configuration.ConfigurationDTO;
 import java.util.Collection;

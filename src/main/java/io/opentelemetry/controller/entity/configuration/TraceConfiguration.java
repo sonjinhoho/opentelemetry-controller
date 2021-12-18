@@ -1,5 +1,6 @@
 package io.opentelemetry.controller.entity.configuration;
 
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,16 +19,15 @@ import lombok.NoArgsConstructor;
 public class TraceConfiguration {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id", nullable = false)
-  private Integer id;
+  private String name;
+  private LocalDateTime time;
   private String traceExporter;
-  private String traceEndpoint;
+  private String traceEndPoint;
   private String traceCertificate;
   private String traceHeaders;
   private String traceCompression;
   private String traceTimeout;
   private String traceProtocol;
   private String propagation;
-
 }

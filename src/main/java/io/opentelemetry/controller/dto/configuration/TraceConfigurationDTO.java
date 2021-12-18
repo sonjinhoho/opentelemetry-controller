@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TraceConfigurationDTO{
+  private String name;
   private String traceExporter;
   private String traceEndPoint;
   private String traceCertificate;
