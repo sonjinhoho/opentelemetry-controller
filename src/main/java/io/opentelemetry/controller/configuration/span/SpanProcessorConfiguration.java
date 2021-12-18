@@ -1,4 +1,4 @@
-package io.opentelemetry.controller.configure.span;
+package io.opentelemetry.controller.configuration.span;
 
 public class SpanProcessorConfiguration {
 
