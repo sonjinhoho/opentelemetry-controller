@@ -1,5 +1,6 @@
 package io.opentelemetry.controller.entity.configuration;
 
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,15 +19,14 @@ import lombok.NoArgsConstructor;
 public class Configuration {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "id", nullable = false)
-  private Integer id;
+  @Column(name = "name", nullable = false)
+  private String name;
+  private LocalDateTime time;
   private String endPoint;
   private String certificate;
   private String headers;
   private String compression;
   private String timeout;
   private String protocol;
-
 
 }

@@ -20,15 +20,22 @@ public class TraceConfigurationService {
     this.dao = dao;
   }
 
-  public List<TraceConfigurationDTO> getTraceConfiguration() {
+  public List<TraceConfigurationDTO> getTraceConfigurations() {
     return dao.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
   }
 
+  public TraceConfigurationDTO getTraceConfiguration(String name) {
+    return convertToDTO(dao.findById(name).orElseThrow(() -> {
+      return new IllegalStateException("Can not found!");
+    }));
+  }
+
   public void saveTraceConfiguration(TraceConfigurationDTO dto) {
-    if (!dao.existsById(dto.getName()))
+    if (!dao.existsById(dto.getName())) {
       dao.save(convertToEntity(dto));
-    else
+    } else {
       throw new IllegalArgumentException("Already has name");
+    }
   }
 
   public void deleteTraceConfiguration(String name) {

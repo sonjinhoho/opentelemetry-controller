@@ -1,4 +1,4 @@
-package io.opentelemetry.controller.configuration.sampler;
+package io.opentelemetry.controller.constants.configuration.sampler;
 
 import lombok.extern.slf4j.Slf4j;
 
