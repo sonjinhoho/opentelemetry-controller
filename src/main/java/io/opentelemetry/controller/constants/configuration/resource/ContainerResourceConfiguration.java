@@ -12,6 +12,6 @@ public class ContainerResourceConfiguration {
 
   public static final String IMAGE_NAME = TYPE + ".image.name";
 
-  public static final String IMAGE_TAGE = TYPE + ".image.tag";
+  public static final String IMAGE_TAG = TYPE + ".image.tag";
 
 }

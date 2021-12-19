@@ -10,7 +10,7 @@ public class CloudResourceConfiguration {
 
   public static final String REGION = TYPE + ".region";
 
-  public static final String AVAILABILITY_ZON = TYPE + ".availability_zone";
+  public static final String AVAILABILITY_ZONE = TYPE + ".availability_zone";
 
   public static final String PLATFORM = TYPE + ".platform";
 }
