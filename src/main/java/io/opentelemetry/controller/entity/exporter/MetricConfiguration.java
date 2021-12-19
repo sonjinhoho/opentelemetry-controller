@@ -1,4 +1,4 @@
-package io.opentelemetry.controller.entity.configuration;
+package io.opentelemetry.controller.entity.exporter;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;

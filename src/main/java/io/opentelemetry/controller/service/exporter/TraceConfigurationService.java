@@ -1,8 +1,8 @@
-package io.opentelemetry.controller.service.configuration;
+package io.opentelemetry.controller.service.exporter;
 
-import io.opentelemetry.controller.dao.configuration.TraceConfigurationRepository;
-import io.opentelemetry.controller.dto.configuration.TraceConfigurationDTO;
-import io.opentelemetry.controller.entity.configuration.TraceConfiguration;
+import io.opentelemetry.controller.dao.exporter.TraceConfigurationRepository;
+import io.opentelemetry.controller.dto.exporter.TraceConfigurationDTO;
+import io.opentelemetry.controller.entity.exporter.TraceConfiguration;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,9 +25,7 @@ public class TraceConfigurationService {
   }
 
   public TraceConfigurationDTO getTraceConfiguration(String name) {
-    return convertToDTO(dao.findById(name).orElseThrow(() -> {
-      return new IllegalStateException("Can not found!");
-    }));
+    return convertToDTO(dao.findById(name).orElseThrow(() -> new IllegalStateException("Can not found!")));
   }
 
   public void saveTraceConfiguration(TraceConfigurationDTO dto) {

@@ -1,4 +1,4 @@
-package io.opentelemetry.controller.dto.configuration;
+package io.opentelemetry.controller.dto.exporter;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

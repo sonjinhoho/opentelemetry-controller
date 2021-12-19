@@ -1,8 +1,8 @@
-package io.opentelemetry.controller.service.configuration;
+package io.opentelemetry.controller.service.exporter;
 
-import io.opentelemetry.controller.dao.configuration.MetricConfigurationRepository;
-import io.opentelemetry.controller.dto.configuration.MetricConfigurationDTO;
-import io.opentelemetry.controller.entity.configuration.MetricConfiguration;
+import io.opentelemetry.controller.dao.exporter.MetricConfigurationRepository;
+import io.opentelemetry.controller.dto.exporter.MetricConfigurationDTO;
+import io.opentelemetry.controller.entity.exporter.MetricConfiguration;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,8 +20,12 @@ public class MetricConfigurationService {
     this.dao = dao;
   }
 
-  public List<MetricConfigurationDTO> getMetricConfiguration() {
+  public List<MetricConfigurationDTO> getMetricConfigurations() {
     return dao.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+  }
+
+  public MetricConfigurationDTO getMetricConfiguration(String name) {
+    return convertToDTO(dao.findById(name).orElseThrow(() -> new IllegalStateException("Can not found!")));
   }
 
   public void saveMetricConfiguration(MetricConfigurationDTO dto) {
