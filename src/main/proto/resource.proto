@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package opentelemetry.proto.collector.trace.config;
+
+import "opentelemetry/proto/trace/v1/trace_config.proto";
+option java_multiple_files = true;
+option java_package = "io.opentelemetry.proto.collector.trace.config";
+option java_outer_classname = "TraceConfigServiceProto";
+option go_package = "github.com/open-telemetry/opentelemetry-proto/gen/go/collector/trace/v1";
+
+
+service TraceConfigService {
+  rpc Export(ResourceId) returns (opentelemetry.proto.trace.v1.TraceConfig ) {}
+}
+
+message ResourceId {
+  string name = 1;
+  string type = 2;
+}
