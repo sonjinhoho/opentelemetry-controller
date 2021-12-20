@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TelemetryResourceDTO {
+  private String name;
   private String type;
   private Map<String, String> attributes;
 }
