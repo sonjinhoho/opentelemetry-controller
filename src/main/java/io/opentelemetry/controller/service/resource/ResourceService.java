@@ -1,9 +1,8 @@
 package io.opentelemetry.controller.service.resource;
 
-import io.opentelemetry.controller.dao.resource.TelemetryResourceRepository;
-import io.opentelemetry.controller.dto.resource.TelemetryResourceDTO;
-import io.opentelemetry.controller.dto.span.SpanLimitConfigurationDTO;
-import io.opentelemetry.controller.entity.resource.TelemetryResource;
+import io.opentelemetry.controller.dao.resource.ResourceRepository;
+import io.opentelemetry.controller.dto.resource.ResourceDTO;
+import io.opentelemetry.controller.entity.resource.ResourceConfiguration;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,24 +11,24 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class TelemetryResourceService {
+public class ResourceService {
 
-  private final TelemetryResourceRepository dao;
+  private final ResourceRepository dao;
 
-  public TelemetryResourceService(
-      TelemetryResourceRepository dao) {
+  public ResourceService(
+      ResourceRepository dao) {
     this.dao = dao;
   }
 
-  public List<TelemetryResourceDTO> getTelemetryResources() {
+  public List<ResourceDTO> getResources() {
     return dao.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
   }
 
-  public TelemetryResourceDTO getTelemetryResource(String name) {
+  public ResourceDTO getResource(String name) {
     return convertToDTO(dao.findById(name).orElseThrow(() -> new IllegalStateException("Can not found!")));
   }
 
-  public void saveTelemetryResource(TelemetryResourceDTO dto) {
+  public void saveResource(ResourceDTO dto) {
     if (!dao.existsById(dto.getName())) {
       dao.save(convertToEntity(dto));
     } else {
@@ -37,25 +36,25 @@ public class TelemetryResourceService {
     }
   }
 
-  public void deleteTelemetryResource(String name) {
+  public void deleteResource(String name) {
     dao.deleteById(name);
   }
 
-  public void updateTelemetryResource(TelemetryResourceDTO dto) {
+  public void updateResource(ResourceDTO dto) {
     if (dao.existsById(dto.getName())) {
       dao.save(convertToEntity(dto));
     }
   }
 
-  private TelemetryResourceDTO convertToDTO(TelemetryResource entity) {
-    return TelemetryResourceDTO.builder()
+  private ResourceDTO convertToDTO(ResourceConfiguration entity) {
+    return ResourceDTO.builder()
         .type(entity.getType())
         .attributes(entity.getAttributes())
         .build();
   }
 
-  private TelemetryResource convertToEntity(TelemetryResourceDTO dto) {
-    return TelemetryResource.builder()
+  private ResourceConfiguration convertToEntity(ResourceDTO dto) {
+    return ResourceConfiguration.builder()
         .name(dto.getName())
         .time(LocalDateTime.now())
         .type(dto.getType())

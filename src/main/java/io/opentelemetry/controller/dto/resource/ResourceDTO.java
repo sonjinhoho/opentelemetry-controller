@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TelemetryResourceDTO {
+public class ResourceDTO {
   private String name;
   private String type;
   private Map<String, String> attributes;
