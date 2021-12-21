@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SpanProcessorConfigurationDTO {
   private String name;
+  private String type;
   @Default
   private Integer scheduleDelay = 5000;
   @Default

@@ -19,6 +19,7 @@ public class SpanProcessorConfiguration {
   @Id
   @Column(name = "name", nullable = false)
   private String name;
+  private String type;
   private LocalDateTime time;
   private Integer scheduleDelay;
   private Integer maxQueueSize;

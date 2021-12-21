@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SpanLimitConfigurationRepository extends
     JpaRepository<SpanLimitConfiguration, String> {
-
+  SpanLimitConfiguration findByNameAndType(String name, String type);
 }

@@ -49,6 +49,7 @@ public class SpanLimitConfigurationService {
   private SpanLimitConfigurationDTO convertToDTO(SpanLimitConfiguration entity) {
     return SpanLimitConfigurationDTO.builder()
         .name(entity.getName())
+        .type(entity.getType())
         .attributeCountLimit(entity.getAttributeCountLimit())
         .attributeCountPerEventLimit(entity.getAttributeCountPerEventLimit())
         .attributeCountPerLinkLimit(entity.getAttributeCountPerLinkLimit())
@@ -60,6 +61,7 @@ public class SpanLimitConfigurationService {
   private SpanLimitConfiguration convertToEntity(SpanLimitConfigurationDTO dto) {
     return SpanLimitConfiguration.builder()
         .name(dto.getName())
+        .type(dto.getType())
         .time(LocalDateTime.now())
         .attributeCountLimit(dto.getAttributeCountLimit())
         .attributeCountPerEventLimit(dto.getAttributeCountPerEventLimit())

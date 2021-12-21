@@ -19,6 +19,7 @@ public class MetricConfiguration {
   @Id
   @Column(name = "id", nullable = false)
   private String name;
+  private String type;
   private LocalDateTime time;
   private String metricExporter;
   private String metricEndPoint;

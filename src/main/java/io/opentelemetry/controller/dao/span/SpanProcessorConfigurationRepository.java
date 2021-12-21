@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface SpanProcessorConfigurationRepository extends
     JpaRepository<SpanProcessorConfiguration, String> {
 
+  SpanProcessorConfiguration findByNameAndType(String name, String type);
 }

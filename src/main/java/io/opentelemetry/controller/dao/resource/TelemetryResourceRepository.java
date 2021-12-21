@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TelemetryResourceRepository extends JpaRepository<TelemetryResource, String> {
 
+  TelemetryResource findByNameAndType(String name, String type);
+
 }

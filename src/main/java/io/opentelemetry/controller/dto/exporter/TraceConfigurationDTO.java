@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TraceConfigurationDTO{
   private String name;
+  private String type;
   private String traceExporter;
   private String traceEndPoint;
   private String traceCertificate;

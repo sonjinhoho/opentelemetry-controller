@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MetricConfigurationDTO{
   private String name;
+  private String type;
   private String metricExporter;
   private String metricEndPoint;
   private String metricCertificate;

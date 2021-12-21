@@ -49,6 +49,7 @@ public class SpanProcessorConfigurationService {
   private SpanProcessorConfigurationDTO convertToDTO(SpanProcessorConfiguration entity) {
     return SpanProcessorConfigurationDTO.builder()
         .name(entity.getName())
+        .type(entity.getType())
         .scheduleDelay(entity.getScheduleDelay())
         .maxQueueSize(entity.getMaxQueueSize())
         .exportBatchSize(entity.getExportBatchSize())
@@ -59,6 +60,7 @@ public class SpanProcessorConfigurationService {
   private SpanProcessorConfiguration convertToEntity(SpanProcessorConfigurationDTO dto) {
     return SpanProcessorConfiguration.builder()
         .name(dto.getName())
+        .type(dto.getType())
         .time(LocalDateTime.now())
         .scheduleDelay(dto.getScheduleDelay())
         .maxQueueSize(dto.getMaxQueueSize())
