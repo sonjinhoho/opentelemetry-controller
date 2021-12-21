@@ -48,6 +48,7 @@ public class MetricConfigurationService {
   private MetricConfigurationDTO convertToDTO(MetricConfiguration entity) {
     return MetricConfigurationDTO.builder()
         .name(entity.getName())
+        .type(entity.getType())
         .metricExporter(entity.getMetricExporter())
         .metricEndPoint(entity.getMetricEndPoint())
         .metricCertificate(entity.getMetricCertificate())
@@ -60,6 +61,7 @@ public class MetricConfigurationService {
   private MetricConfiguration convertToEntity(MetricConfigurationDTO dto) {
     return MetricConfiguration.builder()
         .name(dto.getName())
+        .type(dto.getType())
         .time(LocalDateTime.now())
         .metricExporter(dto.getMetricExporter())
         .metricEndPoint(dto.getMetricEndPoint())

@@ -19,7 +19,7 @@ import org.hibernate.annotations.TypeDef;
 @NoArgsConstructor
 @TypeDef(name = "json", typeClass = JsonStringType.class)
 @Entity
-public class TelemetryResource {
+public class ResourceConfiguration {
 
   @Id
   @Column(name = "name", nullable = false)

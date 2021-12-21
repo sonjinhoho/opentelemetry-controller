@@ -49,6 +49,7 @@ public class TraceConfigurationService {
   private TraceConfigurationDTO convertToDTO(TraceConfiguration entity) {
     return TraceConfigurationDTO.builder()
         .name(entity.getName())
+        .type(entity.getType())
         .traceExporter(entity.getTraceExporter())
         .traceEndPoint(entity.getTraceEndPoint())
         .traceCertificate(entity.getTraceCertificate())
@@ -63,6 +64,7 @@ public class TraceConfigurationService {
     return TraceConfiguration.builder()
         .name(dto.getName())
         .time(LocalDateTime.now())
+        .type(dto.getType())
         .traceExporter(dto.getTraceExporter())
         .traceEndPoint(dto.getTraceEndPoint())
         .traceCertificate(dto.getTraceCertificate())

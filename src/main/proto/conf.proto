@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package opentelemetry.proto.controller.resource.config;
+
+option java_multiple_files = true;
+option java_package = "io.opentelemetry.proto.controller.resource.config";
+
+service ResourceConfigService {
+  rpc ResourceConfigRPC(ConfigRequest) returns (ResourceConfig) {}
+}
+
+service TraceConfigService {
+  rpc TraceConfigRPC(ConfigRequest) returns (TraceConfig) {}
+}
+
+service MetricConfigService {
+  rpc MetricConfigRPC(ConfigRequest) returns (MetricConfig) {}
+}
+
+service SpanLimitConfigService {
+  rpc SpanLimitConfigRPC(ConfigRequest) returns (SpanLimitConfig) {}
+}
+
+service SpanProcessorConfigService {
+  rpc SpanProcessorConfigRPC(ConfigRequest) returns (SpanProcessorConfig) {}
+}
+
+message ConfigRequest {
+  string name = 1;
+  string type = 2;
+}
+
+message TelemetryResourceConfigResponse {
+  map<string, string> attributes = 1;
+  TraceConfig trace = 2;
+  MetricConfig metric = 3;
+}
+
+message ResourceConfig {
+  map<string, string> attributes = 1;
+}
+
+message TraceConfig {
+  string exporter = 1;
+  string endPoint = 2;
+  string certificate = 3;
+  string headers = 4;
+  string compression = 5;
+  string timeout = 6;
+  string protocol = 7;
+  string propagation =8;
+}
+
+message MetricConfig {
+  string exporter = 1;
+  string endPoint = 2;
+  string certificate = 3;
+  string headers = 4;
+  string compression = 5;
+  string timeout = 6;
+  string protocol = 7;
+  string propagation =8;
+}
+
+message SpanLimitConfig {
+  string name = 1;
+  int32  attributeCountLimit = 2;
+  int32  attributeCountPerEventLimit = 3;
+  int32  attributeCountPerLinkLimit = 4;
+  int32  eventCountLimit = 5;
+  int32  linkCountLimit = 6;
+}
+
+message SpanProcessorConfig {
+  string name = 1;
+  int32 scheduleDelay = 2;
+  int32 maxQueueSize = 3;
+  int32 exportBatchSize = 4;
+  int32 exportTimeout = 5;
+}

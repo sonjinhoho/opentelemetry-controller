@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SpanLimitConfigurationDTO {
   private String name;
+  private String type;
   @Default
   private Integer attributeCountLimit = 128;
   @Default
